@@ -13,20 +13,19 @@ import java.util.Scanner;
 public class Q04 {
 
     public static void main(String[] args) {
-        int n = 0;
+        int n;
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter n: ");
         n = sc.nextInt();
         int tam = 0;
         
-        for (int i = 2; i <= n; i++) {
+        for (int i = 1; i <= n; i++) {
             if (i % 2 != 0) {
                 
-                tam = tam+i;
-                
-                
-            }
+                tam += i;
+ }
         }
+        tam*=tam;
         System.out.println("Sum: " + tam);
     }
 }
