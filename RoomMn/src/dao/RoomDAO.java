@@ -13,7 +13,8 @@ import entity.Room;
  */
 public class RoomDAO implements RoomBus {
 
-    Room room[] = new Room[10];
+    int max = 10;
+    public Room room[] = new Room[max];
     int count = 0;
 
     public RoomDAO() {
@@ -27,6 +28,11 @@ public class RoomDAO implements RoomBus {
         if (count >= 10) {
             return false;
         } else {
+            for(int i=0;i<count;i++){
+                if(r.getCode().equals(room[i].getCode())){
+                    return false;
+                }
+            }
             room[count] = r;
             count++;
             return true;
