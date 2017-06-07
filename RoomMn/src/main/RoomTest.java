@@ -26,8 +26,18 @@ public class RoomTest {
             System.out.println("Room code: ");
             sc = new Scanner(System.in);
             r.setCode(sc.nextLine());
-            System.out.println("Price: ");
-            r.setPrice(sc.nextInt());
+            int price = -1;
+            do {
+                try {
+                    sc = new Scanner(System.in);
+                    System.out.println("Price: ");
+                    price = sc.nextInt();
+
+                } catch (Exception ex) {
+                    System.out.println("Vui Long Nhap Price!");
+                }
+            } while (price == -1);
+            r.setPrice(price);
             r.setStatus(true);
             if (roomD.create(r) == true) {
                 System.out.println("Dang ki phong thanh cong! ");
@@ -46,7 +56,7 @@ public class RoomTest {
         } else {
             System.out.println("Tra Phong Thanh Cong!");
         }
-        System.out.println("So Phong Con Trong: "+roomD.count());
-        System.out.println("Tong Tien Cac Phong: "+roomD.total());
+        System.out.println("So Phong Con Trong: " + roomD.count());
+        System.out.println("Tong Tien Cac Phong: " + roomD.total());
     }
 }
