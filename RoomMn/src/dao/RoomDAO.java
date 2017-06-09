@@ -28,8 +28,8 @@ public class RoomDAO implements RoomBus {
         if (count >= 10) {
             return false;
         } else {
-            for(int i=0;i<count;i++){
-                if(r.getCode().equals(room[i].getCode())){
+            for (int i = 0; i < count; i++) {
+                if (r.getCode().equals(room[i].getCode())) {
                     return false;
                 }
             }
@@ -48,7 +48,12 @@ public class RoomDAO implements RoomBus {
 
     @Override
     public int readBycode(String code) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (int i = 0; i < count; i++) {
+            if (room[i].getCode().equals(code)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override

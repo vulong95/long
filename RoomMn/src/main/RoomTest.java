@@ -36,5 +36,15 @@ public class RoomTest {
                 break;
             }
         }
+        System.out.println("Nhap Code Phong Muon Tra!");
+        sc = new Scanner(System.in);
+        String code = sc.nextLine();
+
+        if (roomD.readBycode(code) == -1) {
+            System.out.println("Tra Phong Thanh Cong!");
+
+        } else {
+            System.out.println("Phong Chua Dang Ki!");
+        }
     }
 }
