@@ -41,10 +41,12 @@ public class RoomTest {
         String code = sc.nextLine();
 
         if (roomD.readBycode(code) == -1) {
-            System.out.println("Tra Phong Thanh Cong!");
+            System.out.println("Phong Chua Dang Ki!");
 
         } else {
-            System.out.println("Phong Chua Dang Ki!");
+            System.out.println("Tra Phong Thanh Cong!");
         }
+        System.out.println("So Phong Con Trong: "+roomD.count());
+        System.out.println("Tong Tien Cac Phong: "+roomD.total());
     }
 }

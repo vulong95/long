@@ -58,12 +58,16 @@ public class RoomDAO implements RoomBus {
 
     @Override
     public int count() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return max - count;
     }
 
     @Override
     public int total() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int totalPrice = 0;
+        for (int i = 0; i < count; i++) {
+            totalPrice += room[i].getPrice();
+        }
+        return totalPrice;
     }
 
     @Override
