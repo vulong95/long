@@ -5,11 +5,13 @@
  */
 package dto;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Administrator
  */
-public class TicketDTO {
+public class TicketDTO implements Serializable{
 
     private int code;
     private String name;
@@ -60,7 +62,7 @@ public class TicketDTO {
 
    
     
-     @Override
+    @Override
     public String toString() {
         
         return "TicketDTO{Name= "+name+", Code= "+code+", Quantity= "+quantity+", Pice= "+price+"}";

@@ -27,8 +27,8 @@ public class TicketDAO {
     public TicketDTO create(TicketDTO d) {
         if ((len < 20) && (getPosition(d.getCode()) == -1)) {
             ticket[len] = d;
-            len++;
-            return d;
+
+            return ticket[len++];
         }
         return null;
     }
@@ -77,21 +77,21 @@ public class TicketDAO {
     }
 
     public void readByName(String name) {
-        TicketDTO find[] = new TicketDTO[len];
-
+        TicketDTO[] find = new TicketDTO[len];
+        int count = 0;
         for (int i = 0; i < len; i++) {
-            for(int count =0; count<len-i;count++){
-                if (ticket[i].getName().equals(name)) {
-                find[i] = ticket[i];
-                ticket[i]=ticket[count];
-                ticket[count]=find[i];
-                System.out.println(find[i].toString());
+            if (ticket[i].getName().equals(name)) {
+                find[count] = ticket[i];
+                count++;
             }
 
-            
+        }
+        if (count == 0) {
+            System.out.println("Unregistration Name");
+        } else {
+            for (int i = 0; i < count; i++) {
+                System.out.println(ticket[i].toString());
             }
-            break;
-
         }
 
     }
@@ -104,7 +104,7 @@ public class TicketDAO {
 //    }
 
     public void readByAll() {
-        TicketDTO sort[] = new TicketDTO[len];
+        TicketDTO[] sort = new TicketDTO[len];
         for (int i = 0; i < len - 1; i++) {
             for (int j = i + 1; j < len; j++) {
                 if (getCost(ticket[i]) > getCost(ticket[j])) {
@@ -118,7 +118,7 @@ public class TicketDAO {
         for (int i = 0; i < len; i++) {
             System.out.println(ticket[i].toString());
         }
-
+        
     }
 
 }
