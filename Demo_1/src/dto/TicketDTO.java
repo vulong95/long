@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author Administrator
  */
-public class TicketDTO implements Serializable{
+public class TicketDTO implements Serializable, Comparable<TicketDTO>{
 
     private int code;
     private String name;
@@ -69,6 +69,13 @@ public class TicketDTO implements Serializable{
         return "TicketDTO{Name= "+name+", Code= "+code+", Quantity= "+quantity+", Pice= "+price+"}";
          
                
+    }
+
+    @Override
+    public int compareTo(TicketDTO o) {
+        int value;
+        value = this.name.compareTo(o.name);
+        return value;
     }
     
 }

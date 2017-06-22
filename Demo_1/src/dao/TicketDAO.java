@@ -8,6 +8,7 @@ package dao;
 import com.sun.javafx.scene.control.skin.VirtualFlow;
 import dto.TicketDTO;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -22,13 +23,11 @@ public class TicketDAO {
     public TicketDAO() {
         ticket = new ArrayList<>(max);
     }
-    
 
-
-
-    public List<TicketDTO> readAll(){
+    public List<TicketDTO> readAll() {
         return ticket;
     }
+
     public TicketDTO create(TicketDTO d) {
         if ((ticket.size() < max) && (getPosition(d.getCode()) == -1)) {
             ticket.add(d);
@@ -37,8 +36,6 @@ public class TicketDAO {
         }
         return null;
     }
-
-   
 
 //    public TicketDTO[] display(){
 //        TicketDTO ticketD[]=new TicketDTO[len];
@@ -61,10 +58,9 @@ public class TicketDAO {
 //            return true;
 //        }
 //    }
-    
-     private int getPosition(int code) {
-        int index=0;
-        for (TicketDTO ti:ticket) {
+    private int getPosition(int code) {
+        int index = 0;
+        for (TicketDTO ti : ticket) {
             if (ti.getCode() == code) {
                 return index;
             }
@@ -72,6 +68,7 @@ public class TicketDAO {
         }
         return -1;
     }
+
     private float getCost(TicketDTO f) {
         float cost = f.getPrice() * f.getQuantity();
         return cost;
@@ -79,7 +76,7 @@ public class TicketDAO {
 
     public void displayTotal() {
         float total = 0;
-        for (TicketDTO ti: ticket) {
+        for (TicketDTO ti : ticket) {
             total += getCost(ti);
         }
         System.out.println(total);
@@ -87,44 +84,37 @@ public class TicketDAO {
 
     public void readByName(String name) {
         List<TicketDTO> find = new ArrayList<>(ticket.size());
-        for (TicketDTO ti:ticket) {
+        for (TicketDTO ti : ticket) {
             if (name.equals(ti.getName())) {
                 find.add(ti);
-                
+
             }
-            
+
         }
-        
-        if(find.size()==0){
+
+        if (find.size() == 0) {
             System.out.println("tim ko ra");
 
-        }else{
-                for(TicketDTO ti:find){
-            System.out.println(ti.toString());
+        } else {
+            for (TicketDTO ti : find) {
+                System.out.println(ti.toString());
+            }
         }
-    }
 //    public void readByName(String name) {
 //        for (int i = 0; i < len; i++) {
 //            if (ticket[i].getName().indexOf(name, 0) != -1) {
 //                System.out.println(ticket[i].toString());
 //            }
 //        }
-//    }
+    }
 //sap xep sort
-    public void readByAll() {
-        List <TicketDTO> sort = new ArrayList<>();
-        for (int i = 0; i < len - 1; i++) {
-            for (int j = i + 1; j < len; j++) {
-                if (getCost(ticket.get(i)) > getCost(ticket.get(i))) {
-                    sort.add(ticket.get(i));
-                }
 
-            }
+    public void readByAll() {
+
+        Collections.sort(ticket);
+        for (TicketDTO ti : ticket) {
+            System.out.println(ti.toString());
         }
-        for (int i = 0; i < len; i++) {
-            System.out.println(ticket.get(i).toString());
-        }
-        
     }
 
 }
