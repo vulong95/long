@@ -92,7 +92,15 @@ public class TicketDAO {
                 find.add(ti);
                 
             }
+            
+        }
+        
+        if(find.size()==0){
+            System.out.println("tim ko ra");
 
+        }else{
+                for(TicketDTO ti:find){
+            System.out.println(ti.toString());
         }
     }
 //    public void readByName(String name) {
