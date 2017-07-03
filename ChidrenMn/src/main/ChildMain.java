@@ -28,5 +28,6 @@ public class ChildMain {
         System.out.println("Enter Name: ");
         String name = sc.nextLine();
         dao.readByName(name);
+        
     }
 }
