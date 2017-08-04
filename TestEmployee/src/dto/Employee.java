@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author Quay
  */
-public class Employee implements Serializable {
+public class Employee implements Serializable, Comparable<Employee> {
 
     private String code;
     private String name;
@@ -68,6 +68,16 @@ public class Employee implements Serializable {
     @Override
     public String toString() {
         return "Employee{" + "code=" + code + ", name=" + name + ", age=" + age + ", salary=" + salary + '}';
+    }
+
+    @Override
+    public int compareTo(Employee t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
