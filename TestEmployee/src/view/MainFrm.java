@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Quay
  */
 public class MainFrm extends javax.swing.JFrame {
-
+    
     EmployeeAction ac = null;
 
     /**
@@ -31,7 +31,7 @@ public class MainFrm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         loadTable(ac.readAll());
     }
-
+    
     void loadTable(List<Employee> list) {
         Vector colum = new Vector();
         colum.add("code");
@@ -60,6 +60,7 @@ public class MainFrm extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jButton2 = new javax.swing.JButton();
         spnEmployee = new javax.swing.JScrollPane();
@@ -75,11 +76,16 @@ public class MainFrm extends javax.swing.JFrame {
         btnCreate = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
 
         jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("EM");
+        setMaximumSize(new java.awt.Dimension(20, 10));
+        setMinimumSize(new java.awt.Dimension(20, 10));
+        setPreferredSize(new java.awt.Dimension(20, 10));
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         tblEmployee.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -99,91 +105,227 @@ public class MainFrm extends javax.swing.JFrame {
         });
         spnEmployee.setViewportView(tblEmployee);
 
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 478;
+        gridBagConstraints.ipady = 65;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        getContentPane().add(spnEmployee, gridBagConstraints);
+
         lblCode.setText("Code");
+        lblCode.setAlignmentX(1.0F);
+        lblCode.setAlignmentY(1.0F);
+        lblCode.setMaximumSize(new java.awt.Dimension(20, 10));
+        lblCode.setMinimumSize(new java.awt.Dimension(20, 10));
+        lblCode.setName(""); // NOI18N
+        lblCode.setPreferredSize(new java.awt.Dimension(20, 10));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipady = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(lblCode, gridBagConstraints);
 
         lblName.setText("Name");
+        lblName.setAlignmentX(1.0F);
+        lblName.setAlignmentY(1.0F);
+        lblName.setMaximumSize(new java.awt.Dimension(20, 10));
+        lblName.setMinimumSize(new java.awt.Dimension(20, 10));
+        lblName.setPreferredSize(new java.awt.Dimension(20, 10));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipady = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(lblName, gridBagConstraints);
 
         lblAge.setText("Age");
+        lblAge.setAlignmentX(1.0F);
+        lblAge.setAlignmentY(1.0F);
+        lblAge.setMaximumSize(new java.awt.Dimension(20, 10));
+        lblAge.setMinimumSize(new java.awt.Dimension(20, 10));
+        lblAge.setPreferredSize(new java.awt.Dimension(20, 10));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipady = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(lblAge, gridBagConstraints);
 
         lblSalary.setText("Salary");
+        lblSalary.setAlignmentX(1.0F);
+        lblSalary.setAlignmentY(1.0F);
+        lblSalary.setMaximumSize(new java.awt.Dimension(20, 10));
+        lblSalary.setMinimumSize(new java.awt.Dimension(20, 10));
+        lblSalary.setPreferredSize(new java.awt.Dimension(20, 10));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipady = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(lblSalary, gridBagConstraints);
+
+        txtCode.setAlignmentX(1.0F);
+        txtCode.setAlignmentY(1.0F);
+        txtCode.setMaximumSize(new java.awt.Dimension(20, 10));
+        txtCode.setMinimumSize(new java.awt.Dimension(20, 10));
+        txtCode.setPreferredSize(new java.awt.Dimension(20, 10));
+        txtCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodeActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipady = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(txtCode, gridBagConstraints);
+
+        txtName.setAlignmentX(1.0F);
+        txtName.setAlignmentY(1.0F);
+        txtName.setMaximumSize(new java.awt.Dimension(20, 10));
+        txtName.setMinimumSize(new java.awt.Dimension(20, 10));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipady = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(txtName, gridBagConstraints);
+
+        txtAge.setAlignmentX(1.0F);
+        txtAge.setAlignmentY(1.0F);
+        txtAge.setMaximumSize(new java.awt.Dimension(20, 10));
+        txtAge.setMinimumSize(new java.awt.Dimension(20, 10));
+        txtAge.setPreferredSize(new java.awt.Dimension(20, 10));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipady = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(txtAge, gridBagConstraints);
+
+        txtSalary.setAlignmentX(1.0F);
+        txtSalary.setAlignmentY(1.0F);
+        txtSalary.setMaximumSize(new java.awt.Dimension(20, 10));
+        txtSalary.setMinimumSize(new java.awt.Dimension(20, 10));
+        txtSalary.setPreferredSize(new java.awt.Dimension(20, 10));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipady = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(txtSalary, gridBagConstraints);
 
         btnCreate.setText("Create");
+        btnCreate.setAlignmentX(1.0F);
+        btnCreate.setAlignmentY(1.0F);
+        btnCreate.setMargin(new java.awt.Insets(2, 2, 2, 2));
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipady = 20;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(btnCreate, gridBagConstraints);
 
         btnUpdate.setText("Update");
+        btnUpdate.setAlignmentX(1.0F);
+        btnUpdate.setAlignmentY(1.0F);
+        btnUpdate.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        btnUpdate.setMaximumSize(new java.awt.Dimension(65, 23));
+        btnUpdate.setMinimumSize(new java.awt.Dimension(65, 23));
+        btnUpdate.setPreferredSize(new java.awt.Dimension(65, 23));
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipady = 20;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(btnUpdate, gridBagConstraints);
 
         btnDelete.setText("Delete");
+        btnDelete.setAlignmentX(1.0F);
+        btnDelete.setAlignmentY(1.0F);
+        btnDelete.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        btnDelete.setMaximumSize(new java.awt.Dimension(65, 23));
+        btnDelete.setMinimumSize(new java.awt.Dimension(65, 23));
+        btnDelete.setPreferredSize(new java.awt.Dimension(65, 23));
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipady = 20;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(btnDelete, gridBagConstraints);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spnEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lblCode)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAge)
-                            .addComponent(lblName)))
-                    .addComponent(lblSalary))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCreate)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnUpdate)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDelete))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtCode)
-                        .addComponent(txtName)
-                        .addComponent(txtAge)
-                        .addComponent(txtSalary, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(spnEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCode)
-                    .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblName)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAge)
-                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSalary)
-                    .addComponent(txtSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCreate)
-                    .addComponent(btnUpdate)
-                    .addComponent(btnDelete))
-                .addGap(0, 24, Short.MAX_VALUE))
-        );
+        btnRefresh.setText("Refresh");
+        btnRefresh.setAlignmentX(1.0F);
+        btnRefresh.setAlignmentY(1.0F);
+        btnRefresh.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        btnRefresh.setMaximumSize(new java.awt.Dimension(65, 23));
+        btnRefresh.setMinimumSize(new java.awt.Dimension(65, 23));
+        btnRefresh.setPreferredSize(new java.awt.Dimension(65, 23));
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipady = 20;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(btnRefresh, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -199,6 +341,8 @@ public class MainFrm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Fail");
         }
         loadTable(ac.readAll());
+        txtCode.setText("");
+        txtSalary.setText("");
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -214,6 +358,10 @@ public class MainFrm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Fail");
         }
         loadTable(ac.readAll());
+        txtCode.setText("");
+        txtName.setText("");
+        txtAge.setText("");
+        txtSalary.setText("");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void tblEmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmployeeMouseClicked
@@ -240,6 +388,19 @@ public class MainFrm extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        // TODO add your handling code here:
+        loadTable(ac.readAll());
+        txtCode.setText("");
+        txtName.setText("");
+        txtAge.setText("");
+        txtSalary.setText("");
+    }//GEN-LAST:event_btnRefreshActionPerformed
+
+    private void txtCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,6 +440,7 @@ public class MainFrm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel lblAge;
