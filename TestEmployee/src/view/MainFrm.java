@@ -250,6 +250,9 @@ public class MainFrm extends javax.swing.JFrame {
         btnCreate.setAlignmentX(1.0F);
         btnCreate.setAlignmentY(1.0F);
         btnCreate.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        btnCreate.setMaximumSize(new java.awt.Dimension(65, 23));
+        btnCreate.setMinimumSize(new java.awt.Dimension(65, 23));
+        btnCreate.setPreferredSize(new java.awt.Dimension(65, 23));
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
