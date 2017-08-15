@@ -23,8 +23,8 @@ public class RunServer {
         try {
             VietComBankAction ac = new VietComBankAction();
             try {
-                LocateRegistry.createRegistry(1995);
-                Naming.rebind("rmi://localhost:1995/a", ac);
+                LocateRegistry.createRegistry(55901);
+                Naming.rebind("rmi://localhost:55901/a", ac);
             } catch (RemoteException | MalformedURLException ex) {
                 Logger.getLogger(RunServer.class.getName()).log(Level.SEVERE, null, ex);
             }
