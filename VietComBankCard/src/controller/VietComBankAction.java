@@ -29,14 +29,17 @@ public class VietComBankAction extends UnicastRemoteObject implements VietComBan
         return dao.add(v);
     }
 
+    @Override
     public List<VietComBank> readAll() {
         return dao.readAll();
     }
 
+    @Override
     public VietComBank update(VietComBank v) {
         return dao.update(v);
     }
 
+    @Override
     public boolean delete(String cardnumber) {
         return dao.delete(cardnumber);
     }

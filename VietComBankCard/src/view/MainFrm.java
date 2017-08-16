@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Quay
  */
 public class MainFrm extends javax.swing.JFrame {
-    
+
     VietComBankAction ac = null;
 
     /**
@@ -35,7 +35,7 @@ public class MainFrm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         loadTable(ac.readAll());
     }
-    
+
     void loadTable(List<VietComBank> list) {
         Vector colum = new Vector();
         colum.add("cardnumber");
@@ -64,6 +64,9 @@ public class MainFrm extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         spsVietComBank = new javax.swing.JScrollPane();
         tblVietComBank = new javax.swing.JTable();
         lblCardnumber = new javax.swing.JLabel();
@@ -76,6 +79,14 @@ public class MainFrm extends javax.swing.JFrame {
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
@@ -214,8 +225,6 @@ public class MainFrm extends javax.swing.JFrame {
         getContentPane().add(btnUpdate, gridBagConstraints);
 
         btnDelete.setText("Delete");
-        btnDelete.setMaximumSize(new java.awt.Dimension(63, 23));
-        btnDelete.setMinimumSize(new java.awt.Dimension(63, 23));
         btnDelete.setPreferredSize(new java.awt.Dimension(50, 23));
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,6 +257,11 @@ public class MainFrm extends javax.swing.JFrame {
         gridBagConstraints.ipady = 20;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         getContentPane().add(btnRefresh, gridBagConstraints);
+
+        jMenu3.setText("Language");
+        jMenuBar2.add(jMenu3);
+
+        setJMenuBar(jMenuBar2);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -307,11 +321,16 @@ public class MainFrm extends javax.swing.JFrame {
         String cardnumber = txtCardnumber.getText().trim();
         String name = txtName.getText().trim();
         String address = txtAddress.getText().trim();
-        VietComBank v = new VietComBank(cardnumber, name, address);
-        if (ac.add(v) != null) {
-            JOptionPane.showMessageDialog(this, "Success");
+        if (cardnumber.length() == 11 && (cardnumber.startsWith("0161") || cardnumber.startsWith("0162"))) {
+            VietComBank v = new VietComBank(cardnumber, name, address);
+            if (ac.add(v) != null) {
+                JOptionPane.showMessageDialog(this, "Add Success");
+            } else {
+                JOptionPane.showMessageDialog(this, "Add Fail");
+            }
         } else {
-            JOptionPane.showMessageDialog(this, "Fail");
+            JOptionPane.showMessageDialog(this, "Card number must has length 11"
+                    + "and star with 0161 or 0162");
         }
         loadTable(ac.readAll());
         txtCardnumber.setText("");
@@ -361,6 +380,11 @@ public class MainFrm extends javax.swing.JFrame {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblCardnumber;
     private javax.swing.JLabel lblName;
