@@ -27,6 +27,9 @@
                   <ResourceString bundle="view/rs.properties" key="ENGLISH" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnEnglishActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

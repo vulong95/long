@@ -150,6 +150,11 @@ public class MainFrm extends javax.swing.JFrame {
         jMenu1.add(mnVietnamese);
 
         mnEnglish.setText(bundle.getString("ENGLISH")); // NOI18N
+        mnEnglish.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnEnglishActionPerformed(evt);
+            }
+        });
         jMenu1.add(mnEnglish);
 
         jMenuBar1.add(jMenu1);
@@ -218,6 +223,7 @@ public class MainFrm extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
+        Locale l = new Locale("vi", "VN");
         String cardnumber = txtCardnumber.getText().trim();
         String name = txtName.getText().trim();
         String address = txtAddress.getText().trim();
@@ -225,12 +231,12 @@ public class MainFrm extends javax.swing.JFrame {
         try {
             if (client.check(cardnumber)) {
                 if (client.add(v) != null) {
-                    JOptionPane.showMessageDialog(this, java.util.ResourceBundle.getBundle("view/rs").getString("ADD SUCCESS"));
+                    JOptionPane.showMessageDialog(this, java.util.ResourceBundle.getBundle("view/rs", l).getString("ADD SUCCESS"));
                 } else {
-                    JOptionPane.showMessageDialog(this, java.util.ResourceBundle.getBundle("view/rs").getString("THE CARD IS ALREADY REGISTERED"));
+                    JOptionPane.showMessageDialog(this, java.util.ResourceBundle.getBundle("view/rs", l).getString("THE CARD IS ALREADY REGISTERED"));
                 }
             } else {
-                JOptionPane.showMessageDialog(this, java.util.ResourceBundle.getBundle("view/rs").getString("THE CARD MUST 11 DIGIT AND FIRST 0161 OR 0162"));
+                JOptionPane.showMessageDialog(this, java.util.ResourceBundle.getBundle("view/rs", l).getString("THE CARD MUST 11 DIGIT AND FIRST 0161 OR 0162"));
             }
         } catch (RemoteException ex) {
             Logger.getLogger(MainFrm.class.getName()).log(Level.SEVERE, null, ex);
@@ -239,13 +245,14 @@ public class MainFrm extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
+        Locale l = new Locale("vi", "VN");
         String cardnumber = txtCardnumber.getText().trim();
         try {
             if (client.delete(cardnumber)) {
-                JOptionPane.showMessageDialog(this, java.util.ResourceBundle.getBundle("view/rs").getString("DELETE SUCCESS"));
+                JOptionPane.showMessageDialog(this, java.util.ResourceBundle.getBundle("view/rs", l).getString("DELETE SUCCESS"));
                 loadTable(client.readAll());
             } else {
-                JOptionPane.showMessageDialog(this, java.util.ResourceBundle.getBundle("view/rs").getString("THE CARD IS NOT REGISTERED"));
+                JOptionPane.showMessageDialog(this, java.util.ResourceBundle.getBundle("view/rs", l).getString("THE CARD IS NOT REGISTERED"));
             }
         } catch (RemoteException ex) {
             Logger.getLogger(MainFrm.class.getName()).log(Level.SEVERE, null, ex);
@@ -287,6 +294,22 @@ public class MainFrm extends javax.swing.JFrame {
         mnVietnamese.setText(bundle.getString("VIETNAMESE"));
         mnEnglish.setText(bundle.getString("ENGLISH"));
     }//GEN-LAST:event_mnVietnameseActionPerformed
+
+    private void mnEnglishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnEnglishActionPerformed
+        // TODO add your handling code here:
+        Locale l = new Locale("en", "US");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("view/rs", l);
+        lblCardnumber.setText(bundle.getString("CARD NUMBER"));
+        lblName.setText(bundle.getString("NAME"));
+        lblAddress.setText(bundle.getString("ADDRESS"));
+        btnAdd.setText(bundle.getString("ADD"));
+        btnUpdate.setText(bundle.getString("UPDATE"));
+        btnDelete.setText(bundle.getString("DELETE"));
+        btnRefresh.setText(bundle.getString("REFRESH"));
+        jMenu1.setText(bundle.getString("LANGUAGE"));
+        mnVietnamese.setText(bundle.getString("VIETNAMESE"));
+        mnEnglish.setText(bundle.getString("ENGLISH"));
+    }//GEN-LAST:event_mnEnglishActionPerformed
 
     /**
      * @param args the command line arguments
